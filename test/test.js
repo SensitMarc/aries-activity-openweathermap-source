@@ -21,8 +21,8 @@ test('api request', t => async function() {
     const config = getTestConfig();
 
     // Intercept request.
-    const scope = nock(activity.config.uri)
-        .get(activity.config.path)
+    const scope = nock(activity.uri)
+        .get(activity.path)
         .query(config)
         .replyWithFile(200, __dirname + '/weather.json');
 
