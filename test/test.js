@@ -1,4 +1,5 @@
 import test from 'blue-tape';
+import fs from 'fs';
 import nock from 'nock';
 import openWeatherMap from '..';
 
@@ -23,10 +24,10 @@ test('api request', t => async function() {
     const scope = nock(activity.config.uri)
         .get(activity.config.path)
         .query(config)
-        .reply(200, { 'weather': 'data' });
+        .replyWithFile(200, __dirname + '/weather.json');
 
     const result = await activity.request(config);
-    t.deepEqual(result, { 'weather': 'data' });
+    t.ok(result);
 }());
 
 // Test s3 upload.
@@ -45,12 +46,12 @@ test('s3 upload', t => async function() {
     t.equal(response.key, key);
 }());
 
-// Non-mocked, full-blown test.
+// Non-mocked, full-blown test. THIS HAS SIDE-EFFECTS.
 // Typically skipped unless directly testing.
 test.skip('onTask', t => async function() {
     const activity = openWeatherMap();
     const config = getTestConfig();
     const key = await activity.onTask({}, config);
-    t.comment(key);
+    t.comment(`Uploaded ${key}`);
     t.ok(key);
 }());
