@@ -46,9 +46,18 @@ test('s3 upload', t => async function() {
     t.equal(response.key, key);
 }());
 
+// Transform.
+test('transform', t => {
+    const activity = openWeatherMap();
+    const response = JSON.parse(fs.readFileSync(`${__dirname}/weather.json`));
+    const doc = activity.transform(response);
+    t.ok(doc.timestamp);
+    t.end();
+});
+
 // Non-mocked, full-blown test. THIS HAS SIDE-EFFECTS.
 // Typically skipped unless directly testing.
-test.skip('onTask', t => async function() {
+test.only('onTask', t => async function() {
     const activity = openWeatherMap();
     const config = getTestConfig();
     const key = await activity.onTask({}, config);
