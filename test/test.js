@@ -4,7 +4,7 @@ import nock from 'nock';
 import openWeatherMap from '..';
 
 function getTestConfig() {
-    return { appId: 'efa17477a7e8b2723afdbee014ae0fba', q: 'Lexington, KY' };
+    return { appId: '27259a80f90136956e4f1a60d5082f84', q: 'Lexington, KY' };
 }
 
 // Test we have proper configuration.
