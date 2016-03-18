@@ -1,28 +1,28 @@
 import test from 'blue-tape';
 import fs from 'fs';
 import nock from 'nock';
-import openWeatherMap from '..';
+import OpenWeatherMapSource from '..';
 
-function getTestConfig() {
-    return { appId: '27259a80f90136956e4f1a60d5082f84', q: 'Lexington, KY' };
+function getTestConfig(env) {
+    return { appId: '123', q: 'Lexington, KY' };
 }
 
 // Test we have proper configuration.
 test('proper configuration', t => {
-    const activity = openWeatherMap();
-    t.equal(activity.config.name, require('../package.json').name);
-    t.equal(activity.config.version, require('../package.json').version);
+    const activity = new OpenWeatherMapSource();
+    t.equal(OpenWeatherMapSource.props.name, require('../package.json').name);
+    t.equal(OpenWeatherMapSource.props.version, require('../package.json').version);
     t.end();
 });
 
 // Test api request.
 test('api request', t => async function() {
-    const activity = openWeatherMap();
+    const activity = new OpenWeatherMapSource();
     const config = getTestConfig();
 
     // Intercept request.
-    const scope = nock(activity.uri)
-        .get(activity.path)
+    const scope = nock(OpenWeatherMapSource.uri)
+        .get(OpenWeatherMapSource.path)
         .query(config)
         .replyWithFile(200, __dirname + '/weather.json');
 
@@ -30,25 +30,9 @@ test('api request', t => async function() {
     t.ok(result);
 }());
 
-// Test s3 upload.
-test('s3 upload', t => async function() {
-    const activity = openWeatherMap();
-
-    const key = '12345';
-    const body = { 'weather': 'data' };
-
-    // Intercept request.
-    const scope = nock('https://astronomer-workflows.s3.amazonaws.com')
-        .put(`/${key}`)
-        .reply(200);
-
-    const response = await activity.upload(key, body);
-    t.equal(response.key, key);
-}());
-
 // Transform.
 test('transform', t => {
-    const activity = openWeatherMap();
+    const activity = new OpenWeatherMapSource();
     const response = JSON.parse(fs.readFileSync(`${__dirname}/weather.json`));
     const doc = activity.transform(response);
     t.ok(doc.timestamp);
@@ -57,8 +41,8 @@ test('transform', t => {
 
 // Non-mocked, full-blown test. THIS HAS SIDE-EFFECTS.
 // Typically skipped unless directly testing.
-test.only('onTask', t => async function() {
-    const activity = openWeatherMap();
+test.skip('onTask', t => async function() {
+    const activity = new OpenWeatherMapSource();
     const config = getTestConfig();
     const key = await activity.onTask({}, config);
     t.comment(`Uploaded ${key}`);

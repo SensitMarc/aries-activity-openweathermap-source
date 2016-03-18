@@ -4,26 +4,26 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "test": "babel-node --presets es2015,stage-3 test/test.js | faucet"
+    "test": "babel-node test/test.js | faucet",
+    "tail": "tail -f app.log | bunyan"
   },
   "author": "schnie",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.5.1",
     "babel-core": "^6.5.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-polyfill": "^6.5.0",
     "babel-preset-es2015": "^6.5.0",
-    "babel-preset-stage-3": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
     "blue-tape": "^0.2.0",
     "faucet": "0.0.1",
     "nock": "^7.0.2"
   },
   "dependencies": {
     "astronomer-aries": "astronomerio/aries",
-    "aws-sdk": "^2.2.33",
     "openweathermap": "^1.0.0",
     "request-promise": "^2.0.0",
-    "thenify-all": "^1.6.0",
-    "uuid": "^2.0.1"
+    "thenify-all": "^1.6.0"
   }
 }
