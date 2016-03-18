@@ -23,7 +23,6 @@
   "dependencies": {
     "astronomer-aries": "astronomerio/aries",
     "openweathermap": "^1.0.0",
-    "request-promise": "^2.0.0",
-    "thenify-all": "^1.6.0"
+    "request-promise": "^2.0.0"
   }
 }
