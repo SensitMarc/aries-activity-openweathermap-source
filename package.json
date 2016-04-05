@@ -21,7 +21,7 @@
     "nock": "^7.0.2"
   },
   "dependencies": {
-    "astronomer-aries": "astronomerio/aries",
+    "aries-data": "aries-data/aries-data",
     "openweathermap": "^1.0.0",
     "request-promise": "^2.0.0"
   }
