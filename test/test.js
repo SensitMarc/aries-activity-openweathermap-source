@@ -4,7 +4,13 @@ import nock from 'nock';
 import OpenWeatherMapSource from '..';
 
 function getTestConfig(env) {
-    return { appId: '123', q: 'Lexington, KY' };
+    return { 
+        appId: '123',
+        q: 'Lexington, KY',
+        dataPath: '/forecast',
+        lat: '39.05',
+        lon: '-84.66'
+    };
 }
 
 // Test we have proper configuration.
@@ -29,6 +35,13 @@ test('api request', t => async function() {
     const result = await activity.request(config);
     t.ok(result);
 }());
+
+test('api request with forecast', async t => {
+    const activity = new OpenWeatherMapSource();
+    const config = getTestConfig();
+    const response = activity.request(config);
+    t.comment(response);
+})
 
 // Transform.
 test('transform', t => {
