@@ -97,7 +97,7 @@ This is an example response when a query is made using the "current" method.
 ```
 
 ##To Dos
-[ ] Add Support for XML Responses.
-[ ] Add Support for 16 Day Forecasting Endpoint.
-[ ] Add Support for Historical Data Endpoing.
-[ ] Eliminate Data Path as a config parameter.
+- [ ] Add Support for XML Responses.
+- [ ] Add Support for 16 Day Forecasting Endpoint.
+- [ ] Add Support for Historical Data Endpoing.
+- [ ] Eliminate Data Path as a config parameter.
