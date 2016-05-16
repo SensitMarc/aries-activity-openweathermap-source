@@ -15,7 +15,7 @@ Returns a snapshot of the current weather at the time the integration is run.
 ##Configuration
 
 ###Method
-The method denotes which of the above methods you want to use. Possible values are "forecast" or "current"
+The method denotes which of the above methods you want to use. Possible values are `forecast` or `current`
 ```javascript
 "method": "current"
 ```
@@ -27,7 +27,7 @@ The app Id is assigned to your account by OpenWeatherMap. You can find it by log
 ```
 
 ###Data Path
-The data path corresponds to the method. If using the "current" method, the datapath is "/weather". If using the "forecast" method, the datapath is `/data`.
+The data path corresponds to the method. If using the `current` method, the datapath is `/weather`. If using the "forecast" method, the datapath is `/data`.
 ```javascript
 "datapath": "/weather"
 ```
@@ -97,7 +97,7 @@ This is an example response when a query is made using the "current" method.
 ```
 
 ##To Dos
-[] Add Support for XML Responses.
-[] Add Support for 16 Day Forecasting Endpoint.
-[] Add Support for Historical Data Endpoing.
-[] Eliminate Data Path as a config parameter.
+[ ] Add Support for XML Responses.
+[ ] Add Support for 16 Day Forecasting Endpoint.
+[ ] Add Support for Historical Data Endpoing.
+[ ] Eliminate Data Path as a config parameter.
