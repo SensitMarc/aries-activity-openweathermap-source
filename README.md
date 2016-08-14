@@ -1,3 +1,5 @@
+![alt text](/img/logo.png "Aries Integration for PostgreSQL")
+
 #Aries Integration for OpenWeatherMap
 
 This is an integration for [OpenWeatherMap](http://openweathermap.org).
