@@ -1,4 +1,4 @@
-![alt text](/img/logo.png "Aries Integration for PostgreSQL")
+![alt text](/img/logo.png "Aries Integration for OpenWeatherMap")
 
 #Aries Integration for OpenWeatherMap
 
