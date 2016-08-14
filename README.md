@@ -8,10 +8,10 @@ This is an integration for [OpenWeatherMap](http://openweathermap.org).
 This integration uses two methods:
 
 ###1) Request Forecast
-Returns the weather data for the next 5 days in 3 hour intervals. This is the finest resolution currently available.
+`requestForecast` - Returns the weather data for the next 5 days in 3 hour intervals. This is the finest resolution currently available.
 
 ###2) Request CurrentWeather
-Returns a snapshot of the current weather at the time the integration is run.
+`requestCurrentWeather` - Returns a snapshot of the current weather at the time the integration is run.
 
 
 ##Configuration
@@ -19,7 +19,7 @@ Returns a snapshot of the current weather at the time the integration is run.
 ###Method
 The method denotes which of the above methods you want to use. Possible values are `forecast` or `current`
 ```javascript
-"method": "current"
+"method": "requestCurrentWeather"
 ```
 
 ###App Id
