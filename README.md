@@ -29,7 +29,7 @@ The app Id is assigned to your account by OpenWeatherMap. You can find it by log
 ```
 
 ###Data Path
-The data path corresponds to the method. If using the `current` method, the datapath is `/weather`. If using the "forecast" method, the datapath is `/data`.
+The data path corresponds to the method. If using the `current` method, the datapath is `/weather`. If using the `forecast` method, the datapath is `/data`.
 ```javascript
 "datapath": "/weather"
 ```
