@@ -48,7 +48,7 @@ OR
 "lon": "35"
 ```
 
-##Reponse
+##Response
 This is an example response when a query is made using the "current" method.
 ```javascript
 {
