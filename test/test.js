@@ -5,7 +5,7 @@ import OpenWeatherMapSource from '..';
 
 function getTestConfig(env) {
     return { 
-        appId: '123',
+        appId: 'c27c3da5ea3d280ad7be91ec4cbc6f56',
         q: 'Lexington, KY',
         dataPath: '/forecast',
         lat: '39.05',
