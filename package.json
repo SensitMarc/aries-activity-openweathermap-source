@@ -5,8 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "babel-node test/test.js | faucet",
-    "tail": "tail -f app.log | bunyan",
-    "start": "lib/index.js"
+    "tail": "tail -f app.log | bunyan"
   },
   "author": "schnie",
   "license": "ISC",
