@@ -4,7 +4,7 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    //"test": "babel-node test/test.js | faucet",
+
     "tail": "tail -f app.log | bunyan",
     "start": "node lib/index.js"
   },
